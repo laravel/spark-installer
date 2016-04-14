@@ -2,7 +2,7 @@
 
 You should clone this repository to any location on your system, then add that location to your system's PATH so that the `spark` executable can be run from anywhere on your system.
 
-Next, run the `spark register` command with your API token generated from the [Laravel Spark](https://spark.laravel.com) website.
+After purchasing a Spark license, run the `spark register` command with your API token generated from the [Laravel Spark](https://spark.laravel.com) website.
 
     spark register token-value
 
