@@ -1,0 +1,27 @@
+{
+    "name": "laravel/envoy",
+    "description": "Elegant SSH tasks for PHP.",
+    "keywords": ["ssh", "laravel"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Taylor Otwell",
+            "email": "taylorotwell@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Laravel\\SparkInstaller\\": "src/"
+        }
+    },
+    "require": {
+        "illuminate/support": "~5.1",
+        "symfony/console": "~3.0",
+        "symfony/process": "~3.0",
+        "illuminate/filesystem": "~5.1",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "bin": [
+        "spark"
+    ]
+}

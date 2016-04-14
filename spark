@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+if (file_exists(__DIR__.'/vendor/autoload.php')) {
+    require __DIR__.'/vendor/autoload.php';
+} else {
+    require __DIR__.'/../../autoload.php';
+}
+
+$app = new Symfony\Component\Console\Application(
+    'Laravel Spark Installer', '1.0.0'
+);
+
+$app->add(new Laravel\SparkInstaller\NewCommand);
+$app->add(new Laravel\SparkInstaller\RegisterCommand);
+$app->add(new Laravel\SparkInstaller\TokenCommand);
+
+$app->run();
