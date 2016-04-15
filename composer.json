@@ -1,7 +1,7 @@
 {
-    "name": "laravel/envoy",
-    "description": "Elegant SSH tasks for PHP.",
-    "keywords": ["ssh", "laravel"],
+    "name": "laravel/spark-installer",
+    "description": "Command line installer for Laravel Spark.",
+    "keywords": ["spark", "laravel"],
     "license": "MIT",
     "authors": [
         {
