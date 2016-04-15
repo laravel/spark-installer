@@ -30,7 +30,13 @@ class CreateLaravelProject
      */
     public function install()
     {
-        (new Process('laravel new '.$this->name))->setTty(true)->run(function ($type, $line) {
+        $process = new Process('laravel new '.$this->name);
+
+        if ('\\' !== DIRECTORY_SEPARATOR && file_exists('/dev/tty') && is_readable('/dev/tty')) {
+            $process->setTty(true);
+        }
+
+        $process->run(function ($type, $line) {
             $this->command->output->write($line);
         });
     }
