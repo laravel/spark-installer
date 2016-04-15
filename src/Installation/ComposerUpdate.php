@@ -27,7 +27,13 @@ class ComposerUpdate
      */
     public function install()
     {
-        (new Process('composer update', $this->command->path))->setTty(true)->setTimeout(null)->run(function ($type, $line) {
+        $process = (new Process('composer update', $this->command->path))->setTimeout(null);
+
+        if ('\\' !== DIRECTORY_SEPARATOR && file_exists('/dev/tty') && is_readable('/dev/tty')) {
+            $process->setTty(true);
+        }
+
+        $process->run(function ($type, $line) {
             $this->command->output->write($line);
         });
     }

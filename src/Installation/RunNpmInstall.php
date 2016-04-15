@@ -33,7 +33,13 @@ class RunNpmInstall
 
         $this->command->output->writeln('<info>Installing NPM Dependencies...</info>');
 
-        (new Process('npm set progress=false && npm install', $this->command->path))->setTty(true)->setTimeout(null)->run(function ($type, $line) {
+        $process = (new Process('npm set progress=false && npm install', $this->command->path))->setTimeout(null);
+
+        if ('\\' !== DIRECTORY_SEPARATOR && file_exists('/dev/tty') && is_readable('/dev/tty')) {
+            $process->setTty(true);
+        }
+
+        $process->run(function ($type, $line) {
             $this->command->output->write($line);
         });
     }
