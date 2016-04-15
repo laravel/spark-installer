@@ -36,7 +36,7 @@ class CreateLaravelProject
             $process->setTty(true);
         }
 
-        $process->run(function ($type, $line) {
+        $process->setTimeout(null)->run(function ($type, $line) {
             $this->command->output->write($line);
         });
     }
