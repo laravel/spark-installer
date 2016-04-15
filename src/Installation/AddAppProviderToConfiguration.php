@@ -29,7 +29,20 @@ class AddAppProviderToConfiguration
     {
         $path = $this->command->path.'/config/app.php';
 
-        (new Process("awk '/App\\\\Providers\\\\AppServiceProvider::class,/{print \"        App\\\\Providers\\\\SparkServiceProvider::class,\"}1' ".$path." > temp && mv temp ".$path))->run();
-        (new Process("awk '/App\\\\Providers\\\\AppServiceProvider::class,/{print \"        Laravel\\\\Cashier\\\\CashierServiceProvider::class,\"}1' ".$path." > temp && mv temp ".$path))->run();
+        $contents = file_get_contents($path);
+
+        $contents = str_replace(
+            '        App\\Providers\\AppServiceProvider::class,',
+            "        App\Providers\SparkServiceProvider::class,\n        App\Providers\AppServiceProvider::class,",
+            $contents
+        );
+
+        $contents = str_replace(
+            '        App\\Providers\\AppServiceProvider::class,',
+            "        Laravel\Cashier\CashierServiceProvider::class,\n        App\Providers\AppServiceProvider::class,",
+            $contents
+        );
+
+        file_put_contents($path, $contents);
     }
 }
