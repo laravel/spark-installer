@@ -63,7 +63,7 @@ class RegisterCommand extends SymfonyCommand
 
             return true;
         } catch (Exception $e) {
-            $this->error($e->getMessage());
+            var_dump($e->getMessage());
 
             return false;
         }
