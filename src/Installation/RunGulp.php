@@ -33,7 +33,13 @@ class RunGulp
 
         $this->command->output->writeln('<info>Running Gulp...</info>');
 
-        (new Process('gulp', $this->command->path))->setTty(true)->setTimeout(null)->run(function ($type, $line) {
+        $process = (new Process('gulp', $this->command->path))->setTimeout(null);
+
+        if ('\\' !== DIRECTORY_SEPARATOR && file_exists('/dev/tty') && is_readable('/dev/tty')) {
+            $process->setTty(true);
+        }
+
+        $process->run(function ($type, $line) {
             $this->command->output->write($line);
         });
     }
