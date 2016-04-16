@@ -75,9 +75,12 @@ class DownloadSpark
         try {
             return (string) (new HttpClient)->get(
                 $this->sparkUrl.'/api/releases/'.$release.'/download?api_token='.$this->readToken(),
-                ['headers' => [
-                    'X-Requested-With' => 'XMLHttpRequest',
-                ]]
+                [
+                    'headers' => [
+                        'X-Requested-With' => 'XMLHttpRequest',
+                    ],
+                    'verify' => __DIR__.'/../cacert.pem',
+                ]
             )->getBody();
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 401) {

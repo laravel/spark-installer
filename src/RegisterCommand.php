@@ -59,7 +59,10 @@ class RegisterCommand extends SymfonyCommand
     protected function valid($token)
     {
         try {
-            (new HttpClient)->get($this->sparkUrl.'/api/token/'.$token.'/validate');
+            (new HttpClient)->get(
+                $this->sparkUrl.'/api/token/'.$token.'/validate',
+                ['verify' => __DIR__.'/cacert.pem']
+            );
 
             return true;
         } catch (Exception $e) {

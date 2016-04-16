@@ -21,7 +21,7 @@ trait InteractsWithSparkAPI
     protected function latestSparkRelease()
     {
         return json_decode((string) (new HttpClient)->get(
-            $this->sparkUrl.'/api/releases/version'
+            $this->sparkUrl.'/api/releases/version', ['verify' => __DIR__.'/cacert.pem']
         )->getBody())->version;
     }
 }
