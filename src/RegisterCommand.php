@@ -42,7 +42,7 @@ class RegisterCommand extends SymfonyCommand
         }
 
         if (! $this->configExists()) {
-            mkdir($_SERVER['HOME'].'/.spark');
+            mkdir($this->homePath().'/.spark');
         }
 
         $this->storeToken($input->getArgument('token'));

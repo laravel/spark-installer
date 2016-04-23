@@ -52,14 +52,22 @@ trait InteractsWithSparkConfiguration
      */
     protected function configPath()
     {
+        return $this->homePath().'/.spark/config.json';
+    }
+
+    /**
+     * Get the User's home path.
+     *
+     * @return string
+     */
+    protected function homePath()
+    {
         if (!empty($_SERVER['HOME'])) {
-            $homeDir = $_SERVER['HOME'];
+            return $_SERVER['HOME'];
         } elseif (!empty($_SERVER['HOMEDRIVE']) && !empty($_SERVER['HOMEPATH'])) {
-            $homeDir = $_SERVER['HOMEDRIVE'] . $_SERVER['HOMEPATH'];
+            return $_SERVER['HOMEDRIVE'] . $_SERVER['HOMEPATH'];
         } else {
             throw new Exception('Cannot determine home directory.');
         }
-
-        return $homeDir.'/.spark/config.json';
     }
 }
