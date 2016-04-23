@@ -52,6 +52,14 @@ trait InteractsWithSparkConfiguration
      */
     protected function configPath()
     {
-        return $_SERVER['HOME'].'/.spark/config.json';
+        if (!empty($_SERVER['HOME'])) {
+            $homeDir = $_SERVER['HOME'];
+        } elseif (!empty($_SERVER['HOMEDRIVE']) && !empty($_SERVER['HOMEPATH'])) {
+            $homeDir = $_SERVER['HOMEDRIVE'] . $_SERVER['HOMEPATH'];
+        } else {
+            throw new Exception('Cannot determine home directory.');
+        }
+
+        return $homeDir.'/.spark/config.json';
     }
 }
