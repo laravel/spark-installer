@@ -33,7 +33,7 @@ class UpdateComposerFile
         $composer = $this->getComposerConfiguration();
 
         // Next we will add the Spark and Cashier dependencies to the Composer array as
-        // well as add the Spark "repository" to the configuration so Composer knows
+        // well as adding the Spark "repository" to the configuration so Composer knows
         // where Spark is located. Spark will get installed using the path option.
         $composer = $this->addRepository(
             $this->addSparkDependency(
@@ -103,7 +103,7 @@ class UpdateComposerFile
     }
 
     /**
-     * Write the given Composer configuration back ot disk.
+     * Write the given Composer configuration back to disk.
      *
      * @param  array  $composer
      * @return void
