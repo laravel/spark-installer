@@ -2,8 +2,6 @@
 
 namespace Laravel\SparkInstaller;
 
-use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Input\InputArgument;
