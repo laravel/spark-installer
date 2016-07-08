@@ -2,7 +2,6 @@
 
 namespace Laravel\SparkInstaller\Installation;
 
-use Symfony\Component\Process\Process;
 use Laravel\SparkInstaller\NewCommand;
 
 class UpdateComposerFile
