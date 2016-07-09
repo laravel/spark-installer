@@ -3,7 +3,6 @@
 namespace Laravel\SparkInstaller;
 
 use Exception;
-use InvalidArgumentException;
 use GuzzleHttp\Client as HttpClient;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
