@@ -10,6 +10,7 @@ trait InteractsWithSparkConfiguration
      * Get the Spark API token from the configuration file.
      *
      * @return string
+     * @throws Exception
      */
     protected function readToken()
     {
