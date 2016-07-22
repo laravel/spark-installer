@@ -60,6 +60,7 @@ trait InteractsWithSparkConfiguration
      * Get the User's home path.
      *
      * @return string
+     * @throws Exception
      */
     protected function homePath()
     {

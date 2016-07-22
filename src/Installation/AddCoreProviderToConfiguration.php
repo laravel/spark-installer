@@ -37,7 +37,5 @@ class AddCoreProviderToConfiguration
         );
 
         file_put_contents($path, $contents);
-
-        // (new Process("awk '/App\\\\Providers\\\\AppServiceProvider::class,/{print \"        Laravel\\\\Spark\\\\Providers\\\\SparkServiceProvider::class,\"}1' ".$path." > temp && mv temp ".$path))->run();
     }
 }
