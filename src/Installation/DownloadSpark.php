@@ -5,7 +5,6 @@ namespace Laravel\SparkInstaller\Installation;
 use ZipArchive;
 use GuzzleHttp\Client as HttpClient;
 use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Process\Process;
 use GuzzleHttp\Exception\ClientException;
 use Laravel\SparkInstaller\NewCommand;
 use Laravel\SparkInstaller\InteractsWithSparkAPI;
