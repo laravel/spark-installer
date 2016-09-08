@@ -64,9 +64,9 @@ class UpdateComposerFile
     protected function addCashierDependency($composer)
     {
         if ($this->command->input->getOption('braintree')) {
-            $composer['require']['laravel/cashier-braintree'] = '~1.0';
+            $composer['require']['laravel/cashier-braintree'] = '~2.0';
         } else {
-            $composer['require']['laravel/cashier'] = '~6.0';
+            $composer['require']['laravel/cashier'] = '~7.0';
         }
 
         return $composer;
