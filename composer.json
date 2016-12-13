@@ -15,10 +15,10 @@
         }
     },
     "require": {
-        "illuminate/support": "~5.1|~5.2",
+        "illuminate/support": "~5.1|~5.2|~5.3",
         "symfony/console": "~2.7|~3.0",
         "symfony/process": "~2.7|~3.0",
-        "illuminate/filesystem": "~5.1|~5.2",
+        "illuminate/filesystem": "~5.1|~5.2|~5.3",
         "guzzlehttp/guzzle": "~6.0"
     },
     "bin": [
