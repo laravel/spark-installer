@@ -71,6 +71,7 @@ class NewCommand extends SymfonyCommand
             Installation\AddAppProviderToConfiguration::class,
             Installation\RunNpmInstall::class,
             Installation\RunGulp::class,
+            Installation\LinkStorage::class,
         ];
 
         foreach ($installers as $installer) {
