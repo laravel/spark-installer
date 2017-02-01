@@ -70,7 +70,7 @@ class NewCommand extends SymfonyCommand
             Installation\RunSparkInstall::class,
             Installation\AddAppProviderToConfiguration::class,
             Installation\RunNpmInstall::class,
-            Installation\RunGulp::class,
+            Installation\CompileAssets::class,
         ];
 
         foreach ($installers as $installer) {
