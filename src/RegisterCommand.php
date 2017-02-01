@@ -11,7 +11,7 @@ use Symfony\Component\Console\Command\Command as SymfonyCommand;
 
 class RegisterCommand extends SymfonyCommand
 {
-    use InteractsWithSparkAPI,
+    use InteractsWithSparkApi,
         InteractsWithSparkConfiguration;
 
     /**
