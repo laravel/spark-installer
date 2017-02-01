@@ -8,7 +8,7 @@ if (file_exists(__DIR__.'/vendor/autoload.php')) {
 }
 
 $app = new Symfony\Component\Console\Application(
-    'Laravel Spark Installer', '1.1.1'
+    'Laravel Spark Installer', '1.2.0'
 );
 
 $app->add(new Laravel\SparkInstaller\NewCommand);
