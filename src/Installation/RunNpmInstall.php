@@ -27,13 +27,21 @@ class RunNpmInstall
      */
     public function install()
     {
-        if (! $this->command->output->confirm('Would you like to install the NPM dependencies?', true)) {
+        $usesYarn = $this->usesYarn();
+
+        $title = $usesYarn ? 'NPM (Yarn)' : 'NPM';
+
+        if (! $this->command->output->confirm("Would you like to install the {$title} dependencies?", true)) {
             return;
         }
 
-        $this->command->output->writeln('<info>Installing NPM Dependencies...</info>');
+        $this->command->output->writeln("<info>Installing {$title} Dependencies...</info>");
 
-        $process = (new Process('npm set progress=false && npm install', $this->command->path))->setTimeout(null);
+        if($usesYarn) {
+            $process = (new Process('yarn --no-progress', $this->command->path))->setTimeout(null);
+        } else {
+            $process = (new Process('npm set progress=false && npm install', $this->command->path))->setTimeout(null);
+        }
 
         if ('\\' !== DIRECTORY_SEPARATOR && file_exists('/dev/tty') && is_readable('/dev/tty')) {
             $process->setTty(true);
@@ -42,5 +50,14 @@ class RunNpmInstall
         $process->run(function ($type, $line) {
             $this->command->output->write($line);
         });
+    }
+
+    public function usesYarn()
+    {
+        $process = new Process('which yarn');
+
+        $process->run();
+
+        return $process->isSuccessful();
     }
 }
