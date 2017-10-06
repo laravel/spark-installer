@@ -14,5 +14,6 @@ $app = new Symfony\Component\Console\Application(
 $app->add(new Laravel\SparkInstaller\NewCommand);
 $app->add(new Laravel\SparkInstaller\RegisterCommand);
 $app->add(new Laravel\SparkInstaller\TokenCommand);
+$app->add(new Laravel\SparkInstaller\UpgradeCommand);
 
 $app->run();
