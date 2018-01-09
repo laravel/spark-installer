@@ -80,7 +80,7 @@ class UpdateComposerFile
      */
     protected function addSparkDependency($composer)
     {
-        $composer['require']['laravel/spark'] = '*@dev';
+        $composer['require']['laravel/spark-aurelius'] = '*@dev';
 
         return $composer;
     }
