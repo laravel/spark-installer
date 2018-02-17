@@ -69,7 +69,8 @@ class DownloadSpark
      */
     protected function zipResponse()
     {
-        $release = $this->latestSparkRelease();
+        $release = $this->command->input->getArgument('use')
+            ?? $release = $this->latestSparkRelease();
 
         try {
             return (string) (new HttpClient)->get(
