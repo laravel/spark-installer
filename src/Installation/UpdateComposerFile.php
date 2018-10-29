@@ -66,7 +66,7 @@ class UpdateComposerFile
         if ($this->command->input->getOption('braintree')) {
             $composer['require']['laravel/cashier-braintree'] = '~2.0';
         } else {
-            $composer['require']['laravel/cashier'] = '~7.0';
+            $composer['require']['laravel/cashier'] = '~8.0';
         }
 
         return $composer;
