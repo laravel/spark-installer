@@ -35,7 +35,7 @@ class UpdateComposerFile
         // well as add the Spark "repository" to the configuration so Composer knows
         // where Spark is located. Spark will get installed using the path option.
         $composer = $this->addRepository(
-            $this->addSparkDependency()
+            $this->addSparkDependency($composer)
         );
 
         $this->writeComposerFile($composer);
