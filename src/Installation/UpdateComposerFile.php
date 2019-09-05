@@ -35,9 +35,7 @@ class UpdateComposerFile
         // well as add the Spark "repository" to the configuration so Composer knows
         // where Spark is located. Spark will get installed using the path option.
         $composer = $this->addRepository(
-            $this->addSparkDependency(
-                $this->addCashierDependency($composer)
-            )
+            $this->addSparkDependency()
         );
 
         $this->writeComposerFile($composer);
@@ -53,23 +51,6 @@ class UpdateComposerFile
         return json_decode(file_get_contents(
             $this->command->path.'/composer.json'
         ), true);
-    }
-
-    /**
-     * Add the Cashier Composer dependency.
-     *
-     * @param  array  $composer
-     * @return array
-     */
-    protected function addCashierDependency($composer)
-    {
-        if ($this->command->input->getOption('braintree')) {
-            $composer['require']['laravel/cashier-braintree'] = '~2.0';
-        } else {
-            $composer['require']['laravel/cashier'] = '~7.0';
-        }
-
-        return $composer;
     }
 
     /**

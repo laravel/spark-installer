@@ -47,10 +47,6 @@ class RunSparkInstall
     {
         $command = 'php artisan spark:install --force';
 
-        if ($this->command->input->getOption('braintree')) {
-            $command .= ' --braintree';
-        }
-
         if ($this->command->input->getOption('team-billing')) {
             $command .= ' --team-billing';
         }
