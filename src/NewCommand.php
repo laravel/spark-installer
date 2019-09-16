@@ -43,7 +43,6 @@ class NewCommand extends SymfonyCommand
             ->setName('new')
             ->setDescription('Create a new Spark application')
             ->addArgument('name', InputArgument::REQUIRED, 'The name of the application')
-            ->addOption('braintree', null, InputOption::VALUE_NONE, 'Install Braintree versions of the file stubs')
             ->addOption('team-billing', null, InputOption::VALUE_NONE, 'Configure Spark for team based billing');
     }
 
