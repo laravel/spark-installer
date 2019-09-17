@@ -1,6 +1,6 @@
-## Laravel Spark Installer
+# Laravel Spark Installer
 
-#### Installation
+## Installation
 
 You should clone this repository to any location on your system, then run the `composer install` command within the cloned directory so the installer's dependencies will be installed. Finally add that location to your system's PATH so that the `spark` executable can be run from anywhere on your system.
 
@@ -8,7 +8,7 @@ After purchasing a Spark license, run the `spark register` command with your API
 
     spark register token-value
 
-#### Creating Projects
+## Creating Projects
 
 Once your Spark client has been registered, you can run the `new` command to create new projects:
 
