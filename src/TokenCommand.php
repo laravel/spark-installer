@@ -27,10 +27,12 @@ class TokenCommand extends SymfonyCommand
      *
      * @param  InputInterface  $input
      * @param  OutputInterface  $output
-     * @return void
+     * @return integer
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('<info>Spark API Token:</info> '.$this->readToken());
+
+        return 0;
     }
 }

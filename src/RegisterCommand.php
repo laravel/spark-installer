@@ -32,7 +32,7 @@ class RegisterCommand extends SymfonyCommand
      *
      * @param  InputInterface  $input
      * @param  OutputInterface  $output
-     * @return void
+     * @return integer
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
@@ -47,6 +47,8 @@ class RegisterCommand extends SymfonyCommand
         $this->storeToken($input->getArgument('token'));
 
         $this->tokenIsValid($output);
+
+        return 0;
     }
 
     /**

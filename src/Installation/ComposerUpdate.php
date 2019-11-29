@@ -27,7 +27,7 @@ class ComposerUpdate
      */
     public function install()
     {
-        $process = (new Process('composer update', $this->command->path))->setTimeout(null);
+        $process = Process::fromShellCommandline('composer update', $this->command->path)->setTimeout(null);
 
         if ('\\' !== DIRECTORY_SEPARATOR && file_exists('/dev/tty') && is_readable('/dev/tty')) {
             $process->setTty(true);

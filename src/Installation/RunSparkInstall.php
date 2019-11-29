@@ -27,7 +27,7 @@ class RunSparkInstall
      */
     public function install()
     {
-        $process = new Process($this->command(), $this->command->path);
+        $process = Process::fromShellCommandline($this->command(), $this->command->path);
 
         if ('\\' !== DIRECTORY_SEPARATOR && file_exists('/dev/tty') && is_readable('/dev/tty')) {
             $process->setTty(true);

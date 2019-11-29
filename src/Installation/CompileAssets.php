@@ -33,7 +33,7 @@ class CompileAssets
 
         $this->command->output->writeln('<info>Running Build Script...</info>');
 
-        $process = (new Process('npm run dev', $this->command->path))->setTimeout(null);
+        $process = Process::fromShellCommandline('npm run dev', $this->command->path)->setTimeout(null);
 
         if ('\\' !== DIRECTORY_SEPARATOR && file_exists('/dev/tty') && is_readable('/dev/tty')) {
             $process->setTty(true);

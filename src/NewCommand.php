@@ -51,7 +51,7 @@ class NewCommand extends SymfonyCommand
      *
      * @param  InputInterface  $input
      * @param  OutputInterface  $output
-     * @return void
+     * @return integer
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
@@ -75,5 +75,7 @@ class NewCommand extends SymfonyCommand
         foreach ($installers as $installer) {
             (new $installer($this, $input->getArgument('name')))->install();
         }
+
+        return 0;
     }
 }
