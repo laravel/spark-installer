@@ -35,7 +35,7 @@ class UpdateComposerFile
         // well as add the Spark "repository" to the configuration so Composer knows
         // where Spark is located. Spark will get installed using the path option.
         $composer = $this->addRepository(
-            $this->addSparkDependency($composer)
+            $this->addSparkDependencies($composer)
         );
 
         $this->writeComposerFile($composer);
@@ -54,14 +54,15 @@ class UpdateComposerFile
     }
 
     /**
-     * Add the Spark Composer dependency.
+     * Add the Spark Composer dependencies.
      *
      * @param  array  $composer
      * @return array
      */
-    protected function addSparkDependency($composer)
+    protected function addSparkDependencies($composer)
     {
         $composer['require']['laravel/spark-aurelius'] = '*@dev';
+        $composer['require']['laravel/ui'] = '^2.0';
 
         return $composer;
     }
